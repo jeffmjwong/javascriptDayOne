@@ -57,13 +57,20 @@
 // const arr3str = JSON.stringify(arr3);
 // console.log(arr1str === arr3str);
 
-function changeAgeImpure(person) {
+function changeAgeAndReference(person) {
+    console.log(personObj1 === person);
     person.age = 25;
+    person = {
+        name: 'John',
+        age: 50
+    };
+    console.log(personObj1 === person);
     return person;
 }
-const alex = {
+const personObj1 = {
     name: 'Alex',
     age: 30
 };
-changeAgeImpure(alex);
-console.log(alex);
+const personObj2 = changeAgeAndReference(personObj1);
+console.log(personObj1);
+console.log(personObj2);
